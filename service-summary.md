@@ -1,0 +1,10 @@
+Description=Llama Stack — BeeLLama kvarn4 35B Q4_K_XL (P40) + llama-mtp 9B Q5_K_M (RTX3050)
+After=network.target
+ExecStart=/mnt/data/hd-linux~/.local/bin/llama-stack
+Restart=on-failure
+RestartSec=15
+TimeoutStartSec=600
+KillMode=control-group
+StandardOutput=journal
+StandardError=journal
+WantedBy=default.target

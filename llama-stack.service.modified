@@ -1,0 +1,19 @@
+[Unit]
+Description=Llama Stack — BeeLLama kvarn4 35B Q4_K_XL (P40) + llama-mtp 9B Q5_K_M (RTX3050)
+After=network.target
+
+[Service]
+Type=notify
+NotifyAccess=all
+ExecStart=%h/.local/bin/llama-stack
+ExecStartPre=%h/Scrivania/Hub/lavoro-tech/automazione-bootwatchdog-ai-avanzato/watchdog.sh
+Restart=on-failure
+RestartSec=5
+WatchdogSec=30
+TimeoutStartSec=600
+KillMode=control-group
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
